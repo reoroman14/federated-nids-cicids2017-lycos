@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+﻿cff-version: 1.2.0
 message: "If you use this code, please cite the paper below."
 title: "Federated versus Centralised Network Intrusion Detection on Original and Corrected CIC-IDS2017"
 type: software
@@ -7,22 +7,6 @@ authors:
   - family-names: Alshayaa
     given-names: Majdah
     affiliation: "University of Tabuk"
-  - family-names: Aburomman
-    given-names: Abdulla
-# TODO: fill in the version and release date when the repository is published
 version: "1.0.0"
 date-released: "2026-11-08"
-preferred-citation:
-  type: conference-paper
-  title: "Federated versus Centralised Network Intrusion Detection on Original and Corrected CIC-IDS2017: Does Data Quality or Ensembling Explain the Gap?"
-  authors:
-    - family-names: Alshayaa
-      given-names: Majdah
-      affiliation: "University of Tabuk"
-    - family-names: Aburomman
-      given-names: Abdulla
-  # TODO: replace the placeholders below with the published reference
-  collection-title: "TODO: conference proceedings name"
-  year: 2026
-  doi: "10.0000/TODO"
-  url: "TODO: link to the published paper"
+url: "https://github.com/reoroman14/federated-nids-cicids2017-lycos"
