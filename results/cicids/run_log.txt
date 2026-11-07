@@ -1,0 +1,93 @@
+device=cuda flwr=yes seeds=[0, 1, 2, 3, 4]
+classes kept: ['Benign', 'Bot', 'BruteForce', 'DDoS', 'DoS', 'PortScan', 'WebAttack']; dropped (<100 flows): {'Infiltration': 36, 'Heartbleed': 11}
+=== seed 0 ===
+  per-class counts before undersampling: {'Benign': 1897458, 'Bot': 1441, 'BruteForce': 9152, 'DDoS': 128016, 'DoS': 193748, 'PortScan': 1958, 'WebAttack': 2143}
+  per-class counts after  undersampling: {'Benign': 1500, 'Bot': 1441, 'BruteForce': 1500, 'DDoS': 1500, 'DoS': 1500, 'PortScan': 1500, 'WebAttack': 1500}
+  sizes: total=10441 train=8352 test=2089 per_client=[1671, 1671, 1670, 1670, 1670] features=68
+  FedAvg round 1: macro F1=0.7307 acc=0.7611
+  FedAvg round 2: macro F1=0.8098 acc=0.8210
+  FedAvg round 3: macro F1=0.8425 acc=0.8492
+  FedAvg round 4: macro F1=0.8957 acc=0.8976
+  FedAvg round 5: macro F1=0.9130 acc=0.9143
+  FedAvg round 6: macro F1=0.9199 acc=0.9210
+  FedAvg round 7: macro F1=0.9232 acc=0.9244
+  FedAvg round 8: macro F1=0.9335 acc=0.9344
+  FedAvg round 9: macro F1=0.9412 acc=0.9421
+  FedAvg round 10: macro F1=0.9438 acc=0.9445
+seed 0 finished in 42.4 s
+=== seed 1 ===
+  per-class counts before undersampling: {'Benign': 1897458, 'Bot': 1441, 'BruteForce': 9152, 'DDoS': 128016, 'DoS': 193748, 'PortScan': 1958, 'WebAttack': 2143}
+  per-class counts after  undersampling: {'Benign': 1500, 'Bot': 1441, 'BruteForce': 1500, 'DDoS': 1500, 'DoS': 1500, 'PortScan': 1500, 'WebAttack': 1500}
+  sizes: total=10441 train=8352 test=2089 per_client=[1671, 1671, 1670, 1670, 1670] features=68
+  FedAvg round 1: macro F1=0.7261 acc=0.7516
+  FedAvg round 2: macro F1=0.8085 acc=0.8195
+  FedAvg round 3: macro F1=0.8423 acc=0.8483
+  FedAvg round 4: macro F1=0.8956 acc=0.8966
+  FedAvg round 5: macro F1=0.9044 acc=0.9047
+  FedAvg round 6: macro F1=0.9133 acc=0.9143
+  FedAvg round 7: macro F1=0.9172 acc=0.9181
+  FedAvg round 8: macro F1=0.9227 acc=0.9234
+  FedAvg round 9: macro F1=0.9295 acc=0.9301
+  FedAvg round 10: macro F1=0.9317 acc=0.9325
+seed 1 finished in 42.4 s
+=== seed 2 ===
+  per-class counts before undersampling: {'Benign': 1897458, 'Bot': 1441, 'BruteForce': 9152, 'DDoS': 128016, 'DoS': 193748, 'PortScan': 1958, 'WebAttack': 2143}
+  per-class counts after  undersampling: {'Benign': 1500, 'Bot': 1441, 'BruteForce': 1500, 'DDoS': 1500, 'DoS': 1500, 'PortScan': 1500, 'WebAttack': 1500}
+  sizes: total=10441 train=8352 test=2089 per_client=[1671, 1671, 1670, 1670, 1670] features=68
+  FedAvg round 1: macro F1=0.7815 acc=0.7956
+  FedAvg round 2: macro F1=0.7947 acc=0.8090
+  FedAvg round 3: macro F1=0.8217 acc=0.8305
+  FedAvg round 4: macro F1=0.9033 acc=0.9052
+  FedAvg round 5: macro F1=0.9106 acc=0.9119
+  FedAvg round 6: macro F1=0.9161 acc=0.9172
+  FedAvg round 7: macro F1=0.9216 acc=0.9225
+  FedAvg round 8: macro F1=0.9262 acc=0.9272
+  FedAvg round 9: macro F1=0.9297 acc=0.9306
+  FedAvg round 10: macro F1=0.9305 acc=0.9315
+seed 2 finished in 43.3 s
+=== seed 3 ===
+  per-class counts before undersampling: {'Benign': 1897458, 'Bot': 1441, 'BruteForce': 9152, 'DDoS': 128016, 'DoS': 193748, 'PortScan': 1958, 'WebAttack': 2143}
+  per-class counts after  undersampling: {'Benign': 1500, 'Bot': 1441, 'BruteForce': 1500, 'DDoS': 1500, 'DoS': 1500, 'PortScan': 1500, 'WebAttack': 1500}
+  sizes: total=10441 train=8352 test=2089 per_client=[1671, 1671, 1670, 1670, 1670] features=68
+  FedAvg round 1: macro F1=0.7220 acc=0.7549
+  FedAvg round 2: macro F1=0.8021 acc=0.8157
+  FedAvg round 3: macro F1=0.8466 acc=0.8530
+  FedAvg round 4: macro F1=0.8975 acc=0.8995
+  FedAvg round 5: macro F1=0.9076 acc=0.9095
+  FedAvg round 6: macro F1=0.9129 acc=0.9143
+  FedAvg round 7: macro F1=0.9178 acc=0.9191
+  FedAvg round 8: macro F1=0.9231 acc=0.9244
+  FedAvg round 9: macro F1=0.9237 acc=0.9248
+  FedAvg round 10: macro F1=0.9471 acc=0.9473
+seed 3 finished in 44.9 s
+=== seed 4 ===
+  per-class counts before undersampling: {'Benign': 1897458, 'Bot': 1441, 'BruteForce': 9152, 'DDoS': 128016, 'DoS': 193748, 'PortScan': 1958, 'WebAttack': 2143}
+  per-class counts after  undersampling: {'Benign': 1500, 'Bot': 1441, 'BruteForce': 1500, 'DDoS': 1500, 'DoS': 1500, 'PortScan': 1500, 'WebAttack': 1500}
+  sizes: total=10441 train=8352 test=2089 per_client=[1671, 1671, 1670, 1670, 1670] features=68
+  FedAvg round 1: macro F1=0.7128 acc=0.7468
+  FedAvg round 2: macro F1=0.8388 acc=0.8449
+  FedAvg round 3: macro F1=0.8539 acc=0.8583
+  FedAvg round 4: macro F1=0.9034 acc=0.9047
+  FedAvg round 5: macro F1=0.9091 acc=0.9105
+  FedAvg round 6: macro F1=0.9191 acc=0.9201
+  FedAvg round 7: macro F1=0.9242 acc=0.9253
+  FedAvg round 8: macro F1=0.9316 acc=0.9325
+  FedAvg round 9: macro F1=0.9498 acc=0.9502
+  FedAvg round 10: macro F1=0.9534 acc=0.9536
+seed 4 finished in 40.6 s
+[rerun] === seed 0 ===
+[rerun]   per-class counts before undersampling: {'Benign': 1897458, 'Bot': 1441, 'BruteForce': 9152, 'DDoS': 128016, 'DoS': 193748, 'PortScan': 1958, 'WebAttack': 2143}
+[rerun]   per-class counts after  undersampling: {'Benign': 1500, 'Bot': 1441, 'BruteForce': 1500, 'DDoS': 1500, 'DoS': 1500, 'PortScan': 1500, 'WebAttack': 1500}
+[rerun]   sizes: total=10441 train=8352 test=2089 per_client=[1671, 1671, 1670, 1670, 1670] features=68
+[rerun]   FedAvg round 1: macro F1=0.7307 acc=0.7611
+[rerun]   FedAvg round 2: macro F1=0.8098 acc=0.8210
+[rerun]   FedAvg round 3: macro F1=0.8425 acc=0.8492
+[rerun]   FedAvg round 4: macro F1=0.8957 acc=0.8976
+[rerun]   FedAvg round 5: macro F1=0.9130 acc=0.9143
+[rerun]   FedAvg round 6: macro F1=0.9199 acc=0.9210
+[rerun]   FedAvg round 7: macro F1=0.9232 acc=0.9244
+[rerun]   FedAvg round 8: macro F1=0.9335 acc=0.9344
+[rerun]   FedAvg round 9: macro F1=0.9412 acc=0.9421
+[rerun]   FedAvg round 10: macro F1=0.9438 acc=0.9445
+[rerun] seed 0 finished in 41.1 s
+determinism check: {'seed': 0, 'identical': True, 'n_compared_rows': 21, 'mismatches': [], 'curve_identical': True, 'central_curve_identical': True}

@@ -1,0 +1,623 @@
+{
+ "dataset": "cicids",
+ "smoke": false,
+ "device": "cuda",
+ "torch": "2.11.0+cu128",
+ "flwr_used": true,
+ "classes": [
+  "Benign",
+  "Bot",
+  "BruteForce",
+  "DDoS",
+  "DoS",
+  "PortScan",
+  "WebAttack"
+ ],
+ "dropped_classes": {
+  "Infiltration": 36,
+  "Heartbleed": 11
+ },
+ "clean_info": {
+  "files": [
+   [
+    "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    225745
+   ],
+   [
+    "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+    286467
+   ],
+   [
+    "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+    191033
+   ],
+   [
+    "Monday-WorkingHours.pcap_ISCX.csv",
+    529918
+   ],
+   [
+    "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+    288602
+   ],
+   [
+    "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    170366
+   ],
+   [
+    "Tuesday-WorkingHours.pcap_ISCX.csv",
+    445909
+   ],
+   [
+    "Wednesday-workingHours.pcap_ISCX.csv",
+    692703
+   ]
+  ],
+  "dropped_id_cols": [
+   "Destination Port"
+  ],
+  "dropped_dup_cols": [
+   "Fwd Header Length.1"
+  ],
+  "rows_raw": 2830743,
+  "n_inf_cells": 4376,
+  "n_nan_cells_after_inf": 5734,
+  "rows_dup_dropped": 596780,
+  "rows_feature_dup_conflicting_label": 544,
+  "dropped_zero_var_cols": [
+   "Bwd Avg Bulk Rate",
+   "Bwd Avg Bytes/Bulk",
+   "Bwd Avg Packets/Bulk",
+   "Bwd PSH Flags",
+   "Bwd URG Flags",
+   "Fwd Avg Bulk Rate",
+   "Fwd Avg Bytes/Bulk",
+   "Fwd Avg Packets/Bulk"
+  ],
+  "rows_clean": 2233963,
+  "n_features": 68
+ },
+ "rows_after_class_filter": 2233916,
+ "config": {
+  "K": 5,
+  "cap": 1500,
+  "test_size": 0.2,
+  "rounds": 10,
+  "local_epochs": 5,
+  "central_epochs": 50,
+  "batch": 64,
+  "lr": 0.001,
+  "patience": 3,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ "seeds": [
+  {
+   "seed": 0,
+   "sizes": {
+    "total": 10441,
+    "train": 8352,
+    "test": 2089,
+    "per_client": [
+     1671,
+     1671,
+     1670,
+     1670,
+     1670
+    ],
+    "n_features": 68
+   },
+   "counts_before": {
+    "Benign": 1897458,
+    "Bot": 1441,
+    "BruteForce": 9152,
+    "DDoS": 128016,
+    "DoS": 193748,
+    "PortScan": 1958,
+    "WebAttack": 2143
+   },
+   "counts_after": {
+    "Benign": 1500,
+    "Bot": 1441,
+    "BruteForce": 1500,
+    "DDoS": 1500,
+    "DoS": 1500,
+    "PortScan": 1500,
+    "WebAttack": 1500
+   },
+   "client_class_counts": [
+    [
+     250,
+     228,
+     214,
+     246,
+     247,
+     236,
+     250
+    ],
+    [
+     251,
+     218,
+     232,
+     228,
+     247,
+     250,
+     245
+    ],
+    [
+     225,
+     237,
+     256,
+     239,
+     240,
+     238,
+     235
+    ],
+    [
+     220,
+     238,
+     251,
+     252,
+     241,
+     232,
+     236
+    ],
+    [
+     254,
+     231,
+     247,
+     235,
+     225,
+     244,
+     234
+    ]
+   ],
+   "ties": {
+    "RF": 1,
+    "DT": 16,
+    "KNN": 5,
+    "SVM": 1
+   },
+   "failures": [],
+   "central_dt_depth": 10,
+   "central_dt_leaves": 99,
+   "client_dt_depths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "mlp_params": 17543,
+   "mlp_bytes_per_model_raw": 70172,
+   "mlp_bytes_per_model_serialized": 70940,
+   "mlp_early_stop_trigger_round": null,
+   "mlp_best_round": 10,
+   "seconds": 42.4
+  },
+  {
+   "seed": 1,
+   "sizes": {
+    "total": 10441,
+    "train": 8352,
+    "test": 2089,
+    "per_client": [
+     1671,
+     1671,
+     1670,
+     1670,
+     1670
+    ],
+    "n_features": 68
+   },
+   "counts_before": {
+    "Benign": 1897458,
+    "Bot": 1441,
+    "BruteForce": 9152,
+    "DDoS": 128016,
+    "DoS": 193748,
+    "PortScan": 1958,
+    "WebAttack": 2143
+   },
+   "counts_after": {
+    "Benign": 1500,
+    "Bot": 1441,
+    "BruteForce": 1500,
+    "DDoS": 1500,
+    "DoS": 1500,
+    "PortScan": 1500,
+    "WebAttack": 1500
+   },
+   "client_class_counts": [
+    [
+     260,
+     236,
+     215,
+     238,
+     235,
+     253,
+     234
+    ],
+    [
+     228,
+     223,
+     250,
+     250,
+     258,
+     244,
+     218
+    ],
+    [
+     256,
+     218,
+     241,
+     236,
+     238,
+     237,
+     244
+    ],
+    [
+     206,
+     229,
+     251,
+     239,
+     244,
+     241,
+     260
+    ],
+    [
+     250,
+     246,
+     243,
+     237,
+     225,
+     225,
+     244
+    ]
+   ],
+   "ties": {
+    "RF": 11,
+    "DT": 15,
+    "KNN": 12,
+    "SVM": 1
+   },
+   "failures": [],
+   "central_dt_depth": 10,
+   "central_dt_leaves": 101,
+   "client_dt_depths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "mlp_params": 17543,
+   "mlp_bytes_per_model_raw": 70172,
+   "mlp_bytes_per_model_serialized": 70940,
+   "mlp_early_stop_trigger_round": null,
+   "mlp_best_round": 10,
+   "seconds": 42.4
+  },
+  {
+   "seed": 2,
+   "sizes": {
+    "total": 10441,
+    "train": 8352,
+    "test": 2089,
+    "per_client": [
+     1671,
+     1671,
+     1670,
+     1670,
+     1670
+    ],
+    "n_features": 68
+   },
+   "counts_before": {
+    "Benign": 1897458,
+    "Bot": 1441,
+    "BruteForce": 9152,
+    "DDoS": 128016,
+    "DoS": 193748,
+    "PortScan": 1958,
+    "WebAttack": 2143
+   },
+   "counts_after": {
+    "Benign": 1500,
+    "Bot": 1441,
+    "BruteForce": 1500,
+    "DDoS": 1500,
+    "DoS": 1500,
+    "PortScan": 1500,
+    "WebAttack": 1500
+   },
+   "client_class_counts": [
+    [
+     268,
+     223,
+     227,
+     253,
+     242,
+     231,
+     227
+    ],
+    [
+     241,
+     234,
+     248,
+     228,
+     229,
+     251,
+     240
+    ],
+    [
+     241,
+     225,
+     244,
+     240,
+     232,
+     234,
+     254
+    ],
+    [
+     227,
+     225,
+     246,
+     237,
+     264,
+     235,
+     236
+    ],
+    [
+     223,
+     245,
+     235,
+     242,
+     233,
+     249,
+     243
+    ]
+   ],
+   "ties": {
+    "RF": 4,
+    "DT": 10,
+    "KNN": 8,
+    "SVM": 3
+   },
+   "failures": [],
+   "central_dt_depth": 10,
+   "central_dt_leaves": 112,
+   "client_dt_depths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "mlp_params": 17543,
+   "mlp_bytes_per_model_raw": 70172,
+   "mlp_bytes_per_model_serialized": 70940,
+   "mlp_early_stop_trigger_round": null,
+   "mlp_best_round": 10,
+   "seconds": 43.3
+  },
+  {
+   "seed": 3,
+   "sizes": {
+    "total": 10441,
+    "train": 8352,
+    "test": 2089,
+    "per_client": [
+     1671,
+     1671,
+     1670,
+     1670,
+     1670
+    ],
+    "n_features": 68
+   },
+   "counts_before": {
+    "Benign": 1897458,
+    "Bot": 1441,
+    "BruteForce": 9152,
+    "DDoS": 128016,
+    "DoS": 193748,
+    "PortScan": 1958,
+    "WebAttack": 2143
+   },
+   "counts_after": {
+    "Benign": 1500,
+    "Bot": 1441,
+    "BruteForce": 1500,
+    "DDoS": 1500,
+    "DoS": 1500,
+    "PortScan": 1500,
+    "WebAttack": 1500
+   },
+   "client_class_counts": [
+    [
+     237,
+     213,
+     249,
+     256,
+     250,
+     222,
+     244
+    ],
+    [
+     228,
+     245,
+     233,
+     238,
+     225,
+     248,
+     254
+    ],
+    [
+     229,
+     222,
+     238,
+     233,
+     237,
+     263,
+     248
+    ],
+    [
+     253,
+     242,
+     254,
+     244,
+     220,
+     223,
+     234
+    ],
+    [
+     253,
+     230,
+     226,
+     229,
+     268,
+     244,
+     220
+    ]
+   ],
+   "ties": {
+    "RF": 6,
+    "DT": 14,
+    "KNN": 14,
+    "SVM": 2
+   },
+   "failures": [],
+   "central_dt_depth": 10,
+   "central_dt_leaves": 106,
+   "client_dt_depths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "mlp_params": 17543,
+   "mlp_bytes_per_model_raw": 70172,
+   "mlp_bytes_per_model_serialized": 70940,
+   "mlp_early_stop_trigger_round": null,
+   "mlp_best_round": 10,
+   "seconds": 44.9
+  },
+  {
+   "seed": 4,
+   "sizes": {
+    "total": 10441,
+    "train": 8352,
+    "test": 2089,
+    "per_client": [
+     1671,
+     1671,
+     1670,
+     1670,
+     1670
+    ],
+    "n_features": 68
+   },
+   "counts_before": {
+    "Benign": 1897458,
+    "Bot": 1441,
+    "BruteForce": 9152,
+    "DDoS": 128016,
+    "DoS": 193748,
+    "PortScan": 1958,
+    "WebAttack": 2143
+   },
+   "counts_after": {
+    "Benign": 1500,
+    "Bot": 1441,
+    "BruteForce": 1500,
+    "DDoS": 1500,
+    "DoS": 1500,
+    "PortScan": 1500,
+    "WebAttack": 1500
+   },
+   "client_class_counts": [
+    [
+     222,
+     231,
+     239,
+     219,
+     262,
+     247,
+     251
+    ],
+    [
+     231,
+     221,
+     235,
+     279,
+     242,
+     220,
+     243
+    ],
+    [
+     231,
+     234,
+     247,
+     236,
+     233,
+     245,
+     244
+    ],
+    [
+     286,
+     208,
+     246,
+     231,
+     223,
+     259,
+     217
+    ],
+    [
+     230,
+     258,
+     233,
+     235,
+     240,
+     229,
+     245
+    ]
+   ],
+   "ties": {
+    "RF": 6,
+    "DT": 10,
+    "KNN": 5,
+    "SVM": 0
+   },
+   "failures": [],
+   "central_dt_depth": 10,
+   "central_dt_leaves": 110,
+   "client_dt_depths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "mlp_params": 17543,
+   "mlp_bytes_per_model_raw": 70172,
+   "mlp_bytes_per_model_serialized": 70940,
+   "mlp_early_stop_trigger_round": null,
+   "mlp_best_round": 10,
+   "seconds": 40.6
+  }
+ ],
+ "determinism": {
+  "seed": 0,
+  "identical": true,
+  "n_compared_rows": 21,
+  "mismatches": [],
+  "curve_identical": true,
+  "central_curve_identical": true
+ }
+}

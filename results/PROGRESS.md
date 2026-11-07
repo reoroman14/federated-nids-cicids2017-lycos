@@ -1,0 +1,202 @@
+# Progress log
+
+- 2026-11-08 00:42:33 | PART A | Python 3.12.10 (.venv) OK; installed numpy 2.5.4, pandas 3.1.1, scikit-learn 1.9.1, matplotlib 3.11.2, torch 2.11.0+cu128 (CUDA: RTX 4060 Laptop), flwr 1.43.0; requirements.txt written. Flower simulation engine (Ray) not used; FedAvg uses flwr.server.strategy.aggregate.aggregate in-process.
+- 2026-11-08 00:45:09 | PART B | inspection of lycos done (83 raw columns, 73 model features)
+- 2026-11-08 00:47:05 | PART B | inspection of lycos done (83 raw columns, 73 model features)
+- 2026-11-08 00:47:43 | PART B | inspection of cicids done (79 raw columns, 68 model features)
+- 2026-11-08 00:47:43 | PART B | results/dataset_inspection.md written
+- 2026-11-08 00:47:54 | RUN SMOKE lycos | data loaded: 77028 rows, classes=['Benign', 'BruteForce', 'DDoS', 'DoS', 'WebAttack'], dropped={'PortScan': 68, 'Bot': 32}
+- 2026-11-08 00:47:54 | RUN SMOKE lycos | seed 0: data prepared ({'total': 4958, 'train': 3966, 'test': 992, 'per_client': [794, 793, 793, 793, 793], 'n_features': 73})
+- 2026-11-08 00:47:55 | RUN SMOKE lycos | seed 0: RF central + federated + local-only done
+- 2026-11-08 00:47:55 | RUN SMOKE lycos | seed 0: DT central + federated + local-only done
+- 2026-11-08 00:47:56 | RUN SMOKE lycos | seed 0: KNN central + federated + local-only done
+- 2026-11-08 00:47:56 | RUN SMOKE lycos | seed 0: SVM central + federated + local-only done
+- 2026-11-08 00:47:57 | RUN SMOKE lycos | seed 0: bagging controls done
+- 2026-11-08 00:48:10 | RUN SMOKE lycos | seed 0: MLP central + FedAvg + local-only done
+- 2026-11-08 00:48:10 | RUN SMOKE lycos | seed 0 complete (16.7 s, failures=0)
+- 2026-11-08 00:48:11 | RUN SMOKE lycos | seed 1: data prepared ({'total': 4958, 'train': 3966, 'test': 992, 'per_client': [794, 793, 793, 793, 793], 'n_features': 73})
+- 2026-11-08 00:48:12 | RUN SMOKE lycos | seed 1: RF central + federated + local-only done
+- 2026-11-08 00:48:12 | RUN SMOKE lycos | seed 1: DT central + federated + local-only done
+- 2026-11-08 00:48:12 | RUN SMOKE lycos | seed 1: KNN central + federated + local-only done
+- 2026-11-08 00:48:13 | RUN SMOKE lycos | seed 1: SVM central + federated + local-only done
+- 2026-11-08 00:48:13 | RUN SMOKE lycos | seed 1: bagging controls done
+- 2026-11-08 00:48:26 | RUN SMOKE lycos | seed 1: MLP central + FedAvg + local-only done
+- 2026-11-08 00:48:26 | RUN SMOKE lycos | seed 1 complete (15.7 s, failures=0)
+- 2026-11-08 00:48:26 | RUN SMOKE lycos | seed 2: data prepared ({'total': 4958, 'train': 3966, 'test': 992, 'per_client': [794, 793, 793, 793, 793], 'n_features': 73})
+- 2026-11-08 00:48:27 | RUN SMOKE lycos | seed 2: RF central + federated + local-only done
+- 2026-11-08 00:48:27 | RUN SMOKE lycos | seed 2: DT central + federated + local-only done
+- 2026-11-08 00:48:28 | RUN SMOKE lycos | seed 2: KNN central + federated + local-only done
+- 2026-11-08 00:48:28 | RUN SMOKE lycos | seed 2: SVM central + federated + local-only done
+- 2026-11-08 00:48:29 | RUN SMOKE lycos | seed 2: bagging controls done
+- 2026-11-08 00:48:43 | RUN SMOKE lycos | seed 2: MLP central + FedAvg + local-only done
+- 2026-11-08 00:48:43 | RUN SMOKE lycos | seed 2 complete (17.0 s, failures=0)
+- 2026-11-08 00:48:43 | RUN SMOKE lycos | seed 3: data prepared ({'total': 4958, 'train': 3966, 'test': 992, 'per_client': [794, 793, 793, 793, 793], 'n_features': 73})
+- 2026-11-08 00:48:45 | RUN SMOKE lycos | seed 3: RF central + federated + local-only done
+- 2026-11-08 00:48:45 | RUN SMOKE lycos | seed 3: DT central + federated + local-only done
+- 2026-11-08 00:48:45 | RUN SMOKE lycos | seed 3: KNN central + federated + local-only done
+- 2026-11-08 00:48:46 | RUN SMOKE lycos | seed 3: SVM central + federated + local-only done
+- 2026-11-08 00:48:46 | RUN SMOKE lycos | seed 3: bagging controls done
+- 2026-11-08 00:49:04 | RUN SMOKE lycos | seed 3: MLP central + FedAvg + local-only done
+- 2026-11-08 00:49:04 | RUN SMOKE lycos | seed 3 complete (20.7 s, failures=0)
+- 2026-11-08 00:49:04 | RUN SMOKE lycos | seed 4: data prepared ({'total': 4958, 'train': 3966, 'test': 992, 'per_client': [794, 793, 793, 793, 793], 'n_features': 73})
+- 2026-11-08 00:49:06 | RUN SMOKE lycos | seed 4: RF central + federated + local-only done
+- 2026-11-08 00:49:06 | RUN SMOKE lycos | seed 4: DT central + federated + local-only done
+- 2026-11-08 00:49:07 | RUN SMOKE lycos | seed 4: KNN central + federated + local-only done
+- 2026-11-08 00:49:08 | RUN SMOKE lycos | seed 4: SVM central + federated + local-only done
+- 2026-11-08 00:49:08 | RUN SMOKE lycos | seed 4: bagging controls done
+- 2026-11-08 00:49:23 | RUN SMOKE lycos | seed 4: MLP central + FedAvg + local-only done
+- 2026-11-08 00:49:23 | RUN SMOKE lycos | seed 4 complete (19.4 s, failures=0)
+- 2026-11-08 00:49:40 | RUN SMOKE lycos | determinism check seed 0: identical=True
+- 2026-11-08 00:49:40 | RUN SMOKE lycos | finished; raw outputs in results\smoke\lycos; failures=0
+- 2026-11-08 00:49:54 | RUN SMOKE cicids | data loaded: 111559 rows, classes=['Benign', 'BruteForce', 'DDoS', 'DoS', 'WebAttack'], dropped={'PortScan': 78, 'Bot': 61}
+- 2026-11-08 00:49:54 | RUN SMOKE cicids | seed 0: data prepared ({'total': 5042, 'train': 4033, 'test': 1009, 'per_client': [807, 807, 807, 806, 806], 'n_features': 68})
+- 2026-11-08 00:49:55 | RUN SMOKE cicids | seed 0: RF central + federated + local-only done
+- 2026-11-08 00:49:55 | RUN SMOKE cicids | seed 0: DT central + federated + local-only done
+- 2026-11-08 00:49:56 | RUN SMOKE cicids | seed 0: KNN central + federated + local-only done
+- 2026-11-08 00:49:57 | RUN SMOKE cicids | seed 0: SVM central + federated + local-only done
+- 2026-11-08 00:49:57 | RUN SMOKE cicids | seed 0: bagging controls done
+- 2026-11-08 00:50:14 | RUN SMOKE cicids | seed 0: MLP central + FedAvg + local-only done
+- 2026-11-08 00:50:14 | RUN SMOKE cicids | seed 0 complete (19.7 s, failures=0)
+- 2026-11-08 00:50:14 | RUN SMOKE cicids | seed 1: data prepared ({'total': 5042, 'train': 4033, 'test': 1009, 'per_client': [807, 807, 807, 806, 806], 'n_features': 68})
+- 2026-11-08 00:50:15 | RUN SMOKE cicids | seed 1: RF central + federated + local-only done
+- 2026-11-08 00:50:15 | RUN SMOKE cicids | seed 1: DT central + federated + local-only done
+- 2026-11-08 00:50:16 | RUN SMOKE cicids | seed 1: KNN central + federated + local-only done
+- 2026-11-08 00:50:17 | RUN SMOKE cicids | seed 1: SVM central + federated + local-only done
+- 2026-11-08 00:50:17 | RUN SMOKE cicids | seed 1: bagging controls done
+- 2026-11-08 00:50:31 | RUN SMOKE cicids | seed 1: MLP central + FedAvg + local-only done
+- 2026-11-08 00:50:31 | RUN SMOKE cicids | seed 1 complete (17.2 s, failures=0)
+- 2026-11-08 00:50:31 | RUN SMOKE cicids | seed 2: data prepared ({'total': 5042, 'train': 4033, 'test': 1009, 'per_client': [807, 807, 807, 806, 806], 'n_features': 68})
+- 2026-11-08 00:50:32 | RUN SMOKE cicids | seed 2: RF central + federated + local-only done
+- 2026-11-08 00:50:32 | RUN SMOKE cicids | seed 2: DT central + federated + local-only done
+- 2026-11-08 00:50:33 | RUN SMOKE cicids | seed 2: KNN central + federated + local-only done
+- 2026-11-08 00:50:34 | RUN SMOKE cicids | seed 2: SVM central + federated + local-only done
+- 2026-11-08 00:50:34 | RUN SMOKE cicids | seed 2: bagging controls done
+- 2026-11-08 00:50:48 | RUN SMOKE cicids | seed 2: MLP central + FedAvg + local-only done
+- 2026-11-08 00:50:48 | RUN SMOKE cicids | seed 2 complete (17.5 s, failures=0)
+- 2026-11-08 00:50:48 | RUN SMOKE cicids | seed 3: data prepared ({'total': 5042, 'train': 4033, 'test': 1009, 'per_client': [807, 807, 807, 806, 806], 'n_features': 68})
+- 2026-11-08 00:50:50 | RUN SMOKE cicids | seed 3: RF central + federated + local-only done
+- 2026-11-08 00:50:50 | RUN SMOKE cicids | seed 3: DT central + federated + local-only done
+- 2026-11-08 00:50:50 | RUN SMOKE cicids | seed 3: KNN central + federated + local-only done
+- 2026-11-08 00:50:52 | RUN SMOKE cicids | seed 3: SVM central + federated + local-only done
+- 2026-11-08 00:50:52 | RUN SMOKE cicids | seed 3: bagging controls done
+- 2026-11-08 00:51:09 | RUN SMOKE cicids | seed 3: MLP central + FedAvg + local-only done
+- 2026-11-08 00:51:09 | RUN SMOKE cicids | seed 3 complete (20.6 s, failures=0)
+- 2026-11-08 00:51:09 | RUN SMOKE cicids | seed 4: data prepared ({'total': 5042, 'train': 4033, 'test': 1009, 'per_client': [807, 807, 807, 806, 806], 'n_features': 68})
+- 2026-11-08 00:51:11 | RUN SMOKE cicids | seed 4: RF central + federated + local-only done
+- 2026-11-08 00:51:11 | RUN SMOKE cicids | seed 4: DT central + federated + local-only done
+- 2026-11-08 00:51:11 | RUN SMOKE cicids | seed 4: KNN central + federated + local-only done
+- 2026-11-08 00:51:13 | RUN SMOKE cicids | seed 4: SVM central + federated + local-only done
+- 2026-11-08 00:51:13 | RUN SMOKE cicids | seed 4: bagging controls done
+- 2026-11-08 00:51:30 | RUN SMOKE cicids | seed 4: MLP central + FedAvg + local-only done
+- 2026-11-08 00:51:30 | RUN SMOKE cicids | seed 4 complete (21.1 s, failures=0)
+- 2026-11-08 00:51:49 | RUN SMOKE cicids | determinism check seed 0: identical=True
+- 2026-11-08 00:51:49 | RUN SMOKE cicids | finished; raw outputs in results\smoke\cicids; failures=0
+- 2026-11-08 00:52:00 | RUN lycos | data loaded: 1542551 rows, classes=['Benign', 'Bot', 'BruteForce', 'DDoS', 'DoS', 'PortScan', 'WebAttack'], dropped={'Heartbleed': 11}
+- 2026-11-08 00:52:01 | RUN lycos | seed 0: data prepared ({'total': 9735, 'train': 7788, 'test': 1947, 'per_client': [1558, 1558, 1558, 1557, 1557], 'n_features': 73})
+- 2026-11-08 00:52:03 | RUN lycos | seed 0: RF central + federated + local-only done
+- 2026-11-08 00:52:03 | RUN lycos | seed 0: DT central + federated + local-only done
+- 2026-11-08 00:52:03 | RUN lycos | seed 0: KNN central + federated + local-only done
+- 2026-11-08 00:52:06 | RUN lycos | seed 0: SVM central + federated + local-only done
+- 2026-11-08 00:52:06 | RUN lycos | seed 0: bagging controls done
+- 2026-11-08 00:52:39 | RUN lycos | seed 0: MLP central + FedAvg + local-only done
+- 2026-11-08 00:52:39 | RUN lycos | seed 0 complete (38.2 s, failures=0)
+- 2026-11-08 00:52:40 | RUN lycos | seed 1: data prepared ({'total': 9735, 'train': 7788, 'test': 1947, 'per_client': [1558, 1558, 1558, 1557, 1557], 'n_features': 73})
+- 2026-11-08 00:52:41 | RUN lycos | seed 1: RF central + federated + local-only done
+- 2026-11-08 00:52:41 | RUN lycos | seed 1: DT central + federated + local-only done
+- 2026-11-08 00:52:42 | RUN lycos | seed 1: KNN central + federated + local-only done
+- 2026-11-08 00:52:44 | RUN lycos | seed 1: SVM central + federated + local-only done
+- 2026-11-08 00:52:45 | RUN lycos | seed 1: bagging controls done
+- 2026-11-08 00:53:17 | RUN lycos | seed 1: MLP central + FedAvg + local-only done
+- 2026-11-08 00:53:17 | RUN lycos | seed 1 complete (38.7 s, failures=0)
+- 2026-11-08 00:53:18 | RUN lycos | seed 2: data prepared ({'total': 9735, 'train': 7788, 'test': 1947, 'per_client': [1558, 1558, 1558, 1557, 1557], 'n_features': 73})
+- 2026-11-08 00:53:19 | RUN lycos | seed 2: RF central + federated + local-only done
+- 2026-11-08 00:53:20 | RUN lycos | seed 2: DT central + federated + local-only done
+- 2026-11-08 00:53:20 | RUN lycos | seed 2: KNN central + federated + local-only done
+- 2026-11-08 00:53:23 | RUN lycos | seed 2: SVM central + federated + local-only done
+- 2026-11-08 00:53:23 | RUN lycos | seed 2: bagging controls done
+- 2026-11-08 00:53:43 | REPORT smoke lycos | tables, figures, LaTeX written
+- 2026-11-08 00:53:45 | REPORT smoke cicids | tables, figures, LaTeX written
+- 2026-11-08 00:53:56 | RUN lycos | seed 2: MLP central + FedAvg + local-only done
+- 2026-11-08 00:53:56 | RUN lycos | seed 2 complete (38.8 s, failures=0)
+- 2026-11-08 00:53:58 | RUN lycos | seed 3: data prepared ({'total': 9735, 'train': 7788, 'test': 1947, 'per_client': [1558, 1558, 1558, 1557, 1557], 'n_features': 73})
+- 2026-11-08 00:53:59 | RUN lycos | seed 3: RF central + federated + local-only done
+- 2026-11-08 00:53:59 | RUN lycos | seed 3: DT central + federated + local-only done
+- 2026-11-08 00:53:59 | RUN lycos | seed 3: KNN central + federated + local-only done
+- 2026-11-08 00:54:03 | RUN lycos | seed 3: SVM central + federated + local-only done
+- 2026-11-08 00:54:03 | RUN lycos | seed 3: bagging controls done
+- 2026-11-08 00:54:36 | RUN lycos | seed 3: MLP central + FedAvg + local-only done
+- 2026-11-08 00:54:36 | RUN lycos | seed 3 complete (39.7 s, failures=0)
+- 2026-11-08 00:54:37 | RUN lycos | seed 4: data prepared ({'total': 9735, 'train': 7788, 'test': 1947, 'per_client': [1558, 1558, 1558, 1557, 1557], 'n_features': 73})
+- 2026-11-08 00:54:39 | RUN lycos | seed 4: RF central + federated + local-only done
+- 2026-11-08 00:54:39 | RUN lycos | seed 4: DT central + federated + local-only done
+- 2026-11-08 00:54:39 | RUN lycos | seed 4: KNN central + federated + local-only done
+- 2026-11-08 00:54:42 | RUN lycos | seed 4: SVM central + federated + local-only done
+- 2026-11-08 00:54:42 | RUN lycos | seed 4: bagging controls done
+- 2026-11-08 00:54:43 | REPORT smoke lycos | tables, figures, LaTeX written
+- 2026-11-08 00:54:46 | REPORT smoke cicids | tables, figures, LaTeX written
+- 2026-11-08 00:55:15 | RUN lycos | seed 4: MLP central + FedAvg + local-only done
+- 2026-11-08 00:55:15 | RUN lycos | seed 4 complete (39.0 s, failures=0)
+- 2026-11-08 00:55:49 | RUN lycos | determinism check seed 0: identical=True
+- 2026-11-08 00:55:49 | RUN lycos | finished; raw outputs in results\lycos; failures=0
+- 2026-11-08 00:55:55 | RUN cicids | data loaded: 2233916 rows, classes=['Benign', 'Bot', 'BruteForce', 'DDoS', 'DoS', 'PortScan', 'WebAttack'], dropped={'Infiltration': 36, 'Heartbleed': 11}
+- 2026-11-08 00:55:56 | RUN cicids | seed 0: data prepared ({'total': 10441, 'train': 8352, 'test': 2089, 'per_client': [1671, 1671, 1670, 1670, 1670], 'n_features': 68})
+- 2026-11-08 00:55:58 | RUN cicids | seed 0: RF central + federated + local-only done
+- 2026-11-08 00:55:58 | RUN cicids | seed 0: DT central + federated + local-only done
+- 2026-11-08 00:55:59 | RUN cicids | seed 0: KNN central + federated + local-only done
+- 2026-11-08 00:56:04 | RUN cicids | seed 0: SVM central + federated + local-only done
+- 2026-11-08 00:56:05 | RUN cicids | seed 0: bagging controls done
+- 2026-11-08 00:56:37 | RUN cicids | seed 0: MLP central + FedAvg + local-only done
+- 2026-11-08 00:56:37 | RUN cicids | seed 0 complete (42.4 s, failures=0)
+- 2026-11-08 00:56:39 | RUN cicids | seed 1: data prepared ({'total': 10441, 'train': 8352, 'test': 2089, 'per_client': [1671, 1671, 1670, 1670, 1670], 'n_features': 68})
+- 2026-11-08 00:56:40 | RUN cicids | seed 1: RF central + federated + local-only done
+- 2026-11-08 00:56:40 | RUN cicids | seed 1: DT central + federated + local-only done
+- 2026-11-08 00:56:41 | RUN cicids | seed 1: KNN central + federated + local-only done
+- 2026-11-08 00:56:46 | RUN cicids | seed 1: SVM central + federated + local-only done
+- 2026-11-08 00:56:47 | RUN cicids | seed 1: bagging controls done
+- 2026-11-08 00:57:20 | RUN cicids | seed 1: MLP central + FedAvg + local-only done
+- 2026-11-08 00:57:20 | RUN cicids | seed 1 complete (42.4 s, failures=0)
+- 2026-11-08 00:57:21 | RUN cicids | seed 2: data prepared ({'total': 10441, 'train': 8352, 'test': 2089, 'per_client': [1671, 1671, 1670, 1670, 1670], 'n_features': 68})
+- 2026-11-08 00:57:23 | RUN cicids | seed 2: RF central + federated + local-only done
+- 2026-11-08 00:57:23 | RUN cicids | seed 2: DT central + federated + local-only done
+- 2026-11-08 00:57:23 | RUN cicids | seed 2: KNN central + federated + local-only done
+- 2026-11-08 00:57:29 | RUN cicids | seed 2: SVM central + federated + local-only done
+- 2026-11-08 00:57:29 | RUN cicids | seed 2: bagging controls done
+- 2026-11-08 00:58:03 | RUN cicids | seed 2: MLP central + FedAvg + local-only done
+- 2026-11-08 00:58:03 | RUN cicids | seed 2 complete (43.3 s, failures=0)
+- 2026-11-08 00:58:04 | RUN cicids | seed 3: data prepared ({'total': 10441, 'train': 8352, 'test': 2089, 'per_client': [1671, 1671, 1670, 1670, 1670], 'n_features': 68})
+- 2026-11-08 00:58:06 | RUN cicids | seed 3: RF central + federated + local-only done
+- 2026-11-08 00:58:06 | RUN cicids | seed 3: DT central + federated + local-only done
+- 2026-11-08 00:58:06 | RUN cicids | seed 3: KNN central + federated + local-only done
+- 2026-11-08 00:58:12 | RUN cicids | seed 3: SVM central + federated + local-only done
+- 2026-11-08 00:58:13 | RUN cicids | seed 3: bagging controls done
+- 2026-11-08 00:58:48 | RUN cicids | seed 3: MLP central + FedAvg + local-only done
+- 2026-11-08 00:58:48 | RUN cicids | seed 3 complete (44.9 s, failures=0)
+- 2026-11-08 00:58:49 | RUN cicids | seed 4: data prepared ({'total': 10441, 'train': 8352, 'test': 2089, 'per_client': [1671, 1671, 1670, 1670, 1670], 'n_features': 68})
+- 2026-11-08 00:58:51 | RUN cicids | seed 4: RF central + federated + local-only done
+- 2026-11-08 00:58:51 | RUN cicids | seed 4: DT central + federated + local-only done
+- 2026-11-08 00:58:51 | RUN cicids | seed 4: KNN central + federated + local-only done
+- 2026-11-08 00:58:56 | RUN cicids | seed 4: SVM central + federated + local-only done
+- 2026-11-08 00:58:57 | RUN cicids | seed 4: bagging controls done
+- 2026-11-08 00:59:29 | RUN cicids | seed 4: MLP central + FedAvg + local-only done
+- 2026-11-08 00:59:29 | RUN cicids | seed 4 complete (40.6 s, failures=0)
+- 2026-11-08 01:00:10 | RUN cicids | determinism check seed 0: identical=True
+- 2026-11-08 01:00:10 | RUN cicids | finished; raw outputs in results\cicids; failures=0
+- 2026-11-08 01:00:23 | REPORT lycos | tables, figures, LaTeX written
+- 2026-11-08 01:00:26 | REPORT cicids | tables, figures, LaTeX written
+- 2026-11-08 01:01:15 | OPTIONAL non-IID lycos | seed 0 done (macro F1 0.9734)
+- 2026-11-08 01:01:27 | OPTIONAL non-IID lycos | seed 1 done (macro F1 0.9833)
+- 2026-11-08 01:01:38 | OPTIONAL non-IID lycos | seed 2 done (macro F1 0.9759)
+- 2026-11-08 01:01:49 | OPTIONAL non-IID lycos | seed 3 done (macro F1 0.9614)
+- 2026-11-08 01:02:02 | OPTIONAL non-IID lycos | seed 4 done (macro F1 0.9749)
+- 2026-11-08 01:02:02 | OPTIONAL non-IID lycos | finished, outputs in results/lycos_noniid
+- 2026-11-08 01:03:11 | FINAL | SUMMARY_FOR_REVIEW.md written; all stages complete (optional non-IID included)
+- 2026-11-08 01:35:40 | RELEASE A1 | release/ created (src, requirements.txt, trimmed results); files >20 MB skipped: none
+- 2026-11-08 01:36:30 | RELEASE A2-A4 | .gitignore, LICENSE (MIT), CITATION.cff written in release/
+- 2026-11-08 01:37:36 | RELEASE B | release/README.md written (run times filled after verification)
+- 2026-11-08 01:37:36 | RELEASE C1 | fresh copy _release_verify/ created (data via junctions); verification started
+- 2026-11-08 01:38:29 | RELEASE C2 | paper/main.tex Table III + IV vs results: 56/56 numbers match (paper not modified); Table I family counts also match
+- 2026-11-08 01:53:56 | RELEASE C1 | fresh-copy verification PASSED: new venv + pip install OK; inspect, smoke (lycos, cicids), full (lycos, cicids), report, leakage_check, noniid all exit 0; determinism identical; all regenerated result files byte-identical to release/results
+- 2026-11-08 01:53:56 | RELEASE B5 | README run-time table filled from fresh-copy timings
+- 2026-11-08 01:54:30 | RELEASE C3 | release/ scanned (136 files incl. gz contents): absolute cache path in inspect_log.txt removed and common.py now prints a relative path; no usernames, emails, keys or tokens found
+- 2026-11-08 01:55:47 | RELEASE C4 | git init in release/ only; 136 files staged (2.85 MB); no commit, no remote, nothing pushed
+- 2026-11-08 01:55:47 | RELEASE D | release/RELEASE_CHECK.md written; temporary _release_verify/ removed after junctions unlinked and data folders confirmed intact; logs in _release_verification_logs/

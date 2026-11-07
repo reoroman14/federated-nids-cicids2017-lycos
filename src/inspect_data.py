@@ -1,0 +1,116 @@
+# PART B: data inspection for both datasets (spec items 4 and 5).
+# Writes results/dataset_inspection.md and builds the cleaned-data cache used by the pipeline.
+
+import os
+import sys
+
+import pandas as pd
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from common import (DATASETS, LABEL_MAP, MIN_CLASS_FLOWS, RESULTS, list_files,  # noqa: E402
+                    load_clean, log_progress, normalise_label, read_raw_file)
+
+
+def md_table(df):
+    # Minimal markdown table writer (avoids the optional 'tabulate' dependency)
+    cols = list(df.columns)
+    out = ["| " + " | ".join(str(c) for c in cols) + " |", "|" + "---|" * len(cols)]
+    for _, r in df.iterrows():
+        out.append("| " + " | ".join(str(v) for v in r.values) + " |")
+    return "\n".join(out)
+
+
+def inspect(ds):
+    cfg = DATASETS[ds]
+    lines = [f"## {cfg['name']} (`--dataset {ds}`, folder `{os.path.relpath(cfg['folder'])}`)", ""]
+    label_col = cfg["label_col"].strip()
+    total = None
+    columns = None
+    rows = []
+    for f in list_files(ds):
+        df = read_raw_file(ds, f)
+        if columns is None:
+            columns = list(df.columns)
+        elif list(df.columns) != columns:
+            lines.append(f"WARNING: column list of {os.path.basename(f)} differs from first file")
+        vc = df[label_col].map(normalise_label).value_counts()
+        rows.append({"file": os.path.basename(f), "rows": len(df), "columns": df.shape[1],
+                     "labels": "; ".join(f"{k}: {v}" for k, v in vc.items())})
+        total = vc if total is None else total.add(vc, fill_value=0)
+        print(f"[{ds}] {os.path.basename(f)}: {len(df)} rows, {df.shape[1]} columns")
+    total = total.astype(int).sort_values(ascending=False)
+    n_rows = sum(r["rows"] for r in rows)
+
+    lines += ["### Files", "", md_table(pd.DataFrame(rows)), ""]
+    lines += [f"Total rows: **{n_rows}**", "",
+              f"Label column: **`{label_col}`** (raw header `{cfg['label_col']}`)", ""]
+    lines += [f"### Columns ({len(columns)}, names after stripping spaces)", "",
+              ", ".join(f"`{c}`" for c in columns), ""]
+    ids = [c for c in cfg["id_cols"] if c in columns]
+    lines += [f"Identifier columns present (dropped by the pipeline): {', '.join(f'`{c}`' for c in ids)}", ""]
+
+    # Raw label counts and family mapping
+    m = LABEL_MAP[ds]
+    lab = pd.DataFrame({"raw label": [repr(k) for k in total.index], "flows": total.values,
+                        "family": [m.get(k, "UNMAPPED") for k in total.index]})
+    lines += ["### Raw label values (all files)", "", md_table(lab), ""]
+
+    # Cleaned data (dedup etc.) and the >=100 rule applied to families
+    clean, info = load_clean(ds)
+    fam_raw = lab.groupby("family")["flows"].sum().sort_values(ascending=False)
+    fam_clean = clean["Label"].value_counts()
+    fam = pd.DataFrame({"family": fam_raw.index, "flows (raw)": fam_raw.values,
+                        "flows (after cleaning/dedup)": [int(fam_clean.get(k, 0)) for k in fam_raw.index]})
+    fam["kept (>=100 after cleaning)"] = fam["flows (after cleaning/dedup)"] >= MIN_CLASS_FLOWS
+    lines += ["### Family mapping and class filter", "",
+              "Mapping (raw -> family):", ""]
+    for k, v in m.items():
+        lines.append(f"- `{k!r}` -> **{v}**")
+    lines += ["", md_table(fam), ""]
+    raw_small = lab[lab["flows"] < MIN_CLASS_FLOWS]
+    lines += ["Raw labels with fewer than 100 flows: " +
+              (", ".join(f"{r['raw label']} ({r['flows']}, family {r['family']})" for _, r in raw_small.iterrows())
+               or "none"), ""]
+    dropped = fam[~fam["kept (>=100 after cleaning)"]]
+    lines += ["Dropped families (fewer than 100 flows after cleaning): " +
+              (", ".join(f"{r['family']} ({r['flows (after cleaning/dedup)']})" for _, r in dropped.iterrows())
+               or "none"), ""]
+    rc = clean["RawLabel"].value_counts()
+    lines += ["Raw label counts after cleaning/dedup: " + "; ".join(f"{k!r}: {v}" for k, v in rc.items()), ""]
+
+    lines += ["### Cleaning summary", "",
+              f"- Raw rows: {info['rows_raw']}",
+              f"- Identifier columns dropped: {info['dropped_id_cols']}",
+              f"- Exact duplicate columns dropped: {info['dropped_dup_cols']}",
+              f"- Cells with +/-inf (set to NaN): {info['n_inf_cells']}; NaN cells after that: {info['n_nan_cells_after_inf']}",
+              f"- Duplicate rows dropped: {info['rows_dup_dropped']}",
+              f"- Rows whose feature vector also appears with a different family label: {info['rows_feature_dup_conflicting_label']}",
+              f"- Zero-variance columns dropped ({len(info['dropped_zero_var_cols'])}): {info['dropped_zero_var_cols']}",
+              f"- Rows after cleaning: {info['rows_clean']}",
+              f"- Features used by the models: **{info['n_features']}**", ""]
+    print("\n".join(lines))
+    return lines, len(columns), info["n_features"]
+
+
+def main():
+    out = ["# Dataset inspection", "",
+           "Generated by `python src/inspect_data.py`. All numbers are computed from the CSV files.", ""]
+    res = {}
+    for ds in ["lycos", "cicids"]:
+        lines, ncol, nfeat = inspect(ds)
+        res[ds] = (ncol, nfeat)
+        out += lines
+        log_progress(f"PART B | inspection of {ds} done ({ncol} raw columns, {nfeat} model features)")
+    out += ["## Feature-count difference", "",
+            f"- Raw columns: LYCOS {res['lycos'][0]} vs CIC-IDS2017 {res['cicids'][0]} "
+            f"(difference {res['lycos'][0] - res['cicids'][0]})",
+            f"- Model features after dropping identifiers, label, duplicate and zero-variance columns: "
+            f"LYCOS {res['lycos'][1]} vs CIC-IDS2017 {res['cicids'][1]} "
+            f"(difference {res['lycos'][1] - res['cicids'][1]})", ""]
+    with open(os.path.join(RESULTS, "dataset_inspection.md"), "w", encoding="utf-8") as f:
+        f.write("\n".join(out))
+    log_progress("PART B | results/dataset_inspection.md written")
+
+
+if __name__ == "__main__":
+    main()
